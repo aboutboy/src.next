@@ -120,7 +120,7 @@ jobs:
         run: df -h
 
       - name: Uploading args.gn
-      -  run: echo "rclone copy --fast-list --transfers=128 --retries=10 secondary_disk/out/android_${{ matrix.platform }}/args.gn cache:kiwibrowser-next-builds-${{ matrix.platform }}/"
+        run: echo "rclone copy --fast-list --transfers=128 --retries=10 secondary_disk/out/android_${{ matrix.platform }}/args.gn cache:kiwibrowser-next-builds-${{ matrix.platform }}/"
 
       - name: Calling buildbot
         if: false
@@ -130,7 +130,7 @@ jobs:
         run: echo "rclone copy --fast-list --transfers=128 --retries=10 cache:kiwibrowser-next-builds-${{ matrix.platform }}/ $HOME/kiwibrowser-next-builds-${{ matrix.platform }}"
 
       - name: Transferring build to the standard Kiwi Browser run ID
-      -  run: echo "rclone copy --fast-list --transfers=128 --retries=10 cache:kiwibrowser-next-builds-${{ matrix.platform }}/ cache:kiwibrowser-builds/${{ github.run_id }}/${{ matrix.platform }}"
+        run: echo "rclone copy --fast-list --transfers=128 --retries=10 cache:kiwibrowser-next-builds-${{ matrix.platform }}/ cache:kiwibrowser-builds/${{ github.run_id }}/${{ matrix.platform }}"
 
       - name: Listing files
         run: |
